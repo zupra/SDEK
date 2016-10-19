@@ -26,13 +26,18 @@ ymaps.ready(init);
 
 
 var form = document.querySelectorAll('form');
+
+
 form.addEventListener('submit', function(e) {
 	e.preventDefault();
-  var form = document.querySelector('button');
+
+  var btn = this.querySelector('button');
 
 	var data = new FormData(form);
 	var req = new XMLHttpRequest();
-	req.open('POST', 'https://docs.google.com/forms/d/e/1FAIpQLSfk_uOTXNYKXvr01VEGPGgKAIwlNg90oSqHFqiYs73rscZ56w/viewform', true);
+	req.open('POST', 'https://docs.google.com/forms/d/e/1FAIpQLSfk_uOTXNYKXvr01VEGPGgKAIwlNg90oSqHFqiYs73rscZ56w/formResponse', true);
+
+
 
 	req.send(data);
 
@@ -44,5 +49,6 @@ form.addEventListener('submit', function(e) {
 			btn.innerHTML = 'Записаться';
 
 		}, 600);
+
 
 }, false);
