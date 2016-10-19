@@ -21,3 +21,28 @@ function init() {
 }
 
 ymaps.ready(init);
+
+
+
+
+var form = document.querySelectorAll('form');
+form.addEventListener('submit', function(e) {
+	e.preventDefault();
+  var form = document.querySelector('button');
+
+	var data = new FormData(form);
+	var req = new XMLHttpRequest();
+	req.open('POST', 'https://docs.google.com/forms/d/e/1FAIpQLSfk_uOTXNYKXvr01VEGPGgKAIwlNg90oSqHFqiYs73rscZ56w/viewform', true);
+
+	req.send(data);
+
+	btn.classList.add('success');
+	btn.innerHTML = 'Готово!';
+	form.reset();
+		setTimeout(function(){
+			btn.classList.remove('success');
+			btn.innerHTML = 'Записаться';
+
+		}, 600);
+
+}, false);
